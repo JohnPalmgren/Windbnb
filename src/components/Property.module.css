@@ -1,0 +1,52 @@
+.wrapper {
+    position: relative;
+    margin: 1rem;
+}
+
+.image {
+    width: 395px;
+    height: 269px;
+    border-radius: 24px;
+    background-position:center;
+}
+
+.host {
+    border: 1px solid #4F4F4F;
+    box-sizing: border-box;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 1rem;
+    color: #4F4F4F;
+    font-weight: bold;
+    padding: 0.25rem;
+    font-size: 0.8rem;
+}
+
+.description {
+    color: #4F4F4F;
+    display: inline-block;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.star {
+    color: #ff0000;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.rating {
+    display: inline-block;
+}
+
+.ratingWrapper {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    bottom: 2rem;
+}
+
+.title {
+    margin-left: 1rem;
+    margin-top: 0.6rem;
+}
