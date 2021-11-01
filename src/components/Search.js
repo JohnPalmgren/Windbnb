@@ -3,8 +3,8 @@ import classes from "./Search.module.css"
 import SearchIcon from "@material-ui/icons/Search";
 
 
-const Search = () => {
-  const [clicked, setClicked] = useState(true)
+const Search = (props) => {
+  const [clicked, setClicked] = useState(false)
   const [userInput, setUserInput] = useState("")
 
 
@@ -15,13 +15,20 @@ const Search = () => {
   const contractForm = () => {
         setClicked(false);
   }
-  const inputHandler = (event) => {
-    setUserInput(event.target.value);
+  // const inputHandler = (event) => {
+  //   setUserInput(event.target.value);
+  // }
+
+  let locations = []
+  let locationCheck = [];
+
+  for (let i of props.propertyData) {
+    if (!locationCheck.includes(i["city"])) {
+      locations.push(`${i["city"]}, ${i["country"]}`);
+      locationCheck.push(i["city"]);
+    }
   }
 
-  const locations = ["Helsinki, Finland"]
-
-  console.log(userInput)
     return (
       <Fragment>
         <div
@@ -39,15 +46,23 @@ const Search = () => {
             </button>
           </div>
         </div>
-        <div
-          className={clicked ? classes.expandedLocations : classes.hidden}
-        ></div>
+        <div className={clicked ? classes.expandedWrapper : classes.hidden}>
+          <div className={classes.expandedItems}>
+            <ul>
+              {locations.map((item) => {
+                return <li>{item}</li>;
+              })}
+            </ul>
+          </div>
+          <div className={classes.expandedItems}>guests</div>
+          <div className={classes.expandedItems}>placeholder</div>
+        </div>
 
-        {/* {clicked ? (
+        {clicked ? (
           <div onClick={contractForm} className={classes.backdrop}></div>
         ) : (
           <div></div>
-        )} */}
+        )}
 
         {/* <form
           onClick={expandForm}

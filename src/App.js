@@ -6,9 +6,9 @@ import Search from "./components/Search"
 
 function App() {
   return (
-    <div >
+    <div>
       {Logo}
-      <Search />
+      <Search propertyData={stays} />
       <Properties propertyData={stays} />
     </div>
   );
