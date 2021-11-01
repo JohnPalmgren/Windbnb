@@ -117,8 +117,8 @@
 .expandedWrapper {
   position: absolute;
   top: 0;
-  left: 1rem;
-  width: 90%;
+  left: 0rem;
+  width: 100%;
   background-color: #fff;
   z-index: 1;
   display: flex;
@@ -128,4 +128,9 @@
   margin-top: 8rem;
   width: 100%;
   text-align: center;
+}
+
+.number {
+  display: inline-block;
+  margin: 1rem;
 }
