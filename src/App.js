@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div>
-      {Logo}
+      <Logo />
       <Search
         changeLocation={changeLocation}
         changeGuests={changeGuests}

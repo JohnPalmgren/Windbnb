@@ -1,7 +1,13 @@
-import classes from "./Logo.module.css"
+import classes from "./Logo.module.css";
 
-const Logo = (
-    <div className={classes.whitespace}>
+const Logo = () => {
+  return (
+    <div
+      onClick={() => {
+        window.location.reload();
+      }}
+      className={classes.logo}
+    >
       <svg
         width="96"
         height="19"
@@ -19,6 +25,7 @@ const Logo = (
         />
       </svg>
     </div>
-);
+  );
+};
 
-export default Logo
+export default Logo;

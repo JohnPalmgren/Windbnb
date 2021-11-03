@@ -1,6 +1,7 @@
 import { Fragment, useState, useReducer } from "react";
 import classes from "./Search.module.css";
 import SearchIcon from "@material-ui/icons/Search";
+import Pin from "@material-ui/icons/Place";
 
 const Search = (props) => {
   const [clicked, setClicked] = useState(false);
@@ -108,12 +109,16 @@ const Search = (props) => {
         onClick={expandForm}
         className={clicked ? classes.expandedForm : classes.form}
       >
-        <div className={classes.input}>
-          {!currentLocation ? "Add location" : currentLocation}
-        </div>
-        <div className={classes.input}>
-          {guestState.guests < 1 ? "Add guests" : guestState.guests}
-        </div>
+        {!currentLocation ? (
+          <div className={classes.inputGrey}>Add location</div>
+        ) : (
+          <div className={classes.input}>{currentLocation}</div>
+        )}
+        {guestState.guests < 1 ? (
+          <div className={classes.inputGrey}>Add guests</div>
+        ) : (
+          <div className={classes.input}> {guestState.guests}</div>
+        )}
         <div className={classes.buttonWrapper}>
           <button
             onClick={contractForm}
@@ -126,12 +131,19 @@ const Search = (props) => {
       </div>
       <div className={clicked ? classes.expandedWrapper : classes.hidden}>
         <div className={classes.expandedItems}>
-          <ul>
+          <ul className={classes.list}>
             {allLocations.map((item) => {
               return (
-                <li onClick={changeLocation.bind(this, item)} key={item}>
-                  {item}
-                </li>
+                <div>
+                  <Pin />
+                  <li
+                    className={classes.listItem}
+                    onClick={changeLocation.bind(this, item)}
+                    key={item}
+                  >
+                    {item}
+                  </li>
+                </div>
               );
             })}
           </ul>
