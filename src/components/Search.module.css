@@ -138,6 +138,13 @@
   text-align: center;
 }
 
+/* hidden in mobile view */
+.expandedItemsHidden {
+  margin-top: 8rem;
+  width: 100%;
+  text-align: center;
+}
+
 .number {
   display: inline-block;
   margin: 1rem;
@@ -155,4 +162,20 @@
   cursor: pointer;
   display: inline-block;
   vertical-align: super;
+}
+
+@media screen and (max-width: 550px) {
+  .form {
+    position:static;
+    width:90%;
+    margin:auto;
+  }
+
+  .buttonWrapper {
+    flex-basis: content;
+  }
+
+  .expandedItemsHidden {
+    display: none;
+  }
 }

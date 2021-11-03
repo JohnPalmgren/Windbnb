@@ -6,6 +6,7 @@ import Pin from "@material-ui/icons/Place";
 const Search = (props) => {
   const [clicked, setClicked] = useState(false);
   const [currentLocation, setCurrentLocation] = useState();
+  const [locationClicked, setLocationClicked] = useState(true);
 
   const guestReducer = (state, action) => {
     if (action.type === "ADD_ADULT") {
@@ -103,6 +104,14 @@ const Search = (props) => {
     props.changeLocation(location);
   };
 
+  const clickedLocation = () => {
+    setLocationClicked(true)
+  }
+
+  const unclickLocation = () => {
+    setLocationClicked(false)
+  }
+
   return (
     <Fragment>
       <div
@@ -110,16 +119,25 @@ const Search = (props) => {
         className={clicked ? classes.expandedForm : classes.form}
       >
         {!currentLocation ? (
-          <div className={classes.inputGrey}>Add location</div>
+          <div onClick={clickedLocation} className={classes.inputGrey}>
+            Add location
+          </div>
         ) : (
-          <div className={classes.input}>{currentLocation}</div>
+          <div onClick={clickedLocation} className={classes.input}>
+            {currentLocation}
+          </div>
         )}
         {guestState.guests < 1 ? (
-          <div className={classes.inputGrey}>Add guests</div>
+          <div onClick={unclickLocation} className={classes.inputGrey}>
+            Add guests
+          </div>
         ) : (
-          <div className={classes.input}> {guestState.guests}</div>
+          <div onClick={unclickLocation} className={classes.input}>
+            {" "}
+            {guestState.guests}
+          </div>
         )}
-        <div className={classes.buttonWrapper}>
+        <div onClick={clickedLocation} className={classes.buttonWrapper}>
           <button
             onClick={contractForm}
             className={clicked ? classes.expandedButton : classes.button}
@@ -130,7 +148,7 @@ const Search = (props) => {
         </div>
       </div>
       <div className={clicked ? classes.expandedWrapper : classes.hidden}>
-        <div className={classes.expandedItems}>
+        <div className={ locationClicked ? classes.expandedItems : classes.expandedItemsHidden}>
           <ul className={classes.list}>
             {allLocations.map((item) => {
               return (
@@ -148,7 +166,7 @@ const Search = (props) => {
             })}
           </ul>
         </div>
-        <div className={classes.expandedItems}>
+        <div className={ locationClicked ? classes.expandedItemsHidden : classes.expandedItems}>
           <span>Adults </span>
           <span>
             <br /> Ages 13 and above <br />
