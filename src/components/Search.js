@@ -4,21 +4,29 @@ import SearchIcon from "@material-ui/icons/Search";
 
 const Search = (props) => {
   const [clicked, setClicked] = useState(false);
+  const [currentLocation, setCurrentLocation] = useState();
 
   const guestReducer = (state, action) => {
-
     if (action.type === "ADD_ADULT") {
-      return (state = { guests: state.guests + 1, adults: state.adults + 1, children: state.children });
+      return (state = {
+        guests: state.guests + 1,
+        adults: state.adults + 1,
+        children: state.children,
+      });
     }
     if (action.type === "REMOVE_ADULT") {
       if (state.adults < 1) {
         return {
           guests: state.guests,
           adults: state.adults,
-          children: state.children
+          children: state.children,
         };
       }
-      return (state = { guests: state.guests - 1, adults: state.adults - 1, children: state.children });
+      return (state = {
+        guests: state.guests - 1,
+        adults: state.adults - 1,
+        children: state.children,
+      });
     }
     if (action.type === "ADD_CHILD") {
       return (state = {
@@ -50,37 +58,48 @@ const Search = (props) => {
   });
 
   const expandForm = () => {
-    setClicked(true);
+    if (!clicked) {
+      setClicked(true);
+    }
   };
 
   const contractForm = () => {
     setClicked(false);
   };
 
-  let locations = [];
+  let allLocations = [];
   let locationCheck = [];
 
   for (let i of props.propertyData) {
     if (!locationCheck.includes(i["city"])) {
-      locations.push(`${i["city"]}, ${i["country"]}`);
+      allLocations.push(`${i["city"]}, ${i["country"]}`);
       locationCheck.push(i["city"]);
     }
   }
 
   const addAdult = () => {
     dispatchGuest({ type: "ADD_ADULT" });
+    props.changeGuests(guestState.guests);
   };
 
   const removeAdult = () => {
     dispatchGuest({ type: "REMOVE_ADULT" });
+    props.changeGuests(guestState.guests);
   };
 
   const addChild = () => {
     dispatchGuest({ type: "ADD_CHILD" });
+    props.changeGuests(guestState.guests);
   };
 
   const removeChild = () => {
     dispatchGuest({ type: "REMOVE_CHILD" });
+    props.changeGuests(guestState.guests);
+  };
+
+  const changeLocation = (location) => {
+    setCurrentLocation(location);
+    props.changeLocation(location);
   };
 
   return (
@@ -89,12 +108,17 @@ const Search = (props) => {
         onClick={expandForm}
         className={clicked ? classes.expandedForm : classes.form}
       >
-        <div className={classes.input}>{locations[0]}</div>
+        <div className={classes.input}>
+          {!currentLocation ? "Add location" : currentLocation}
+        </div>
         <div className={classes.input}>
           {guestState.guests < 1 ? "Add guests" : guestState.guests}
         </div>
         <div className={classes.buttonWrapper}>
-          <button className={clicked ? classes.expandedButton : classes.button}>
+          <button
+            onClick={contractForm}
+            className={clicked ? classes.expandedButton : classes.button}
+          >
             <SearchIcon className={classes.icon} />
             {clicked ? <span className={classes.text}>Search</span> : null}
           </button>
@@ -103,8 +127,12 @@ const Search = (props) => {
       <div className={clicked ? classes.expandedWrapper : classes.hidden}>
         <div className={classes.expandedItems}>
           <ul>
-            {locations.map((item) => {
-              return <li>{item}</li>;
+            {allLocations.map((item) => {
+              return (
+                <li onClick={changeLocation.bind(this, item)} key={item}>
+                  {item}
+                </li>
+              );
             })}
           </ul>
         </div>
