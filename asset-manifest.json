@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Windbnb/static/css/main.a9b36166.chunk.css",
+    "main.js": "/Windbnb/static/js/main.05f2d693.chunk.js",
+    "main.js.map": "/Windbnb/static/js/main.05f2d693.chunk.js.map",
+    "runtime-main.js": "/Windbnb/static/js/runtime-main.71ff147f.js",
+    "runtime-main.js.map": "/Windbnb/static/js/runtime-main.71ff147f.js.map",
+    "static/js/2.011fb9a0.chunk.js": "/Windbnb/static/js/2.011fb9a0.chunk.js",
+    "static/js/2.011fb9a0.chunk.js.map": "/Windbnb/static/js/2.011fb9a0.chunk.js.map",
+    "static/js/3.f89616ac.chunk.js": "/Windbnb/static/js/3.f89616ac.chunk.js",
+    "static/js/3.f89616ac.chunk.js.map": "/Windbnb/static/js/3.f89616ac.chunk.js.map",
+    "index.html": "/Windbnb/index.html",
+    "static/css/main.a9b36166.chunk.css.map": "/Windbnb/static/css/main.a9b36166.chunk.css.map",
+    "static/js/2.011fb9a0.chunk.js.LICENSE.txt": "/Windbnb/static/js/2.011fb9a0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.71ff147f.js",
+    "static/js/2.011fb9a0.chunk.js",
+    "static/css/main.a9b36166.chunk.css",
+    "static/js/main.05f2d693.chunk.js"
+  ]
+}
