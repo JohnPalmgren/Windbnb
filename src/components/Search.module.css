@@ -178,4 +178,18 @@
   .expandedItemsHidden {
     display: none;
   }
+
+  .expandedWrapper {
+    flex-direction: column;
+  }
+
+  .expandedButton {
+    position: absolute;
+    top: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
 }
