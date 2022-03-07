@@ -7,7 +7,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://johnpalmgren.github.io/Windbnb"/>
+    <a href="https://johnpalmgren.github.io/Windbnb/"/>
       Demo
     </a>
     <span> | </span>
