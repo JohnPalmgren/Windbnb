@@ -7,11 +7,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://eniac01.github.io/Windbnb"/>
+    <a href="https://johnpalmgren.github.io/Windbnb"/>
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/eniac01/Windbnb">
+    <a href="https://github.com/johnpalmgren/Windbnb">
       Solution
     </a>
     <span> | </span>
