@@ -82,5 +82,5 @@ $ npm start
 
 ## Contact
 
-- Website [John Palmgren](https://portfoliositemain06643.gatsbyjs.io/)
-- GitHub [@eniac01](https://{github.com/your-usermame})
+- Website [John Palmgren](http://johnpalmgren.co.uk/)
+- GitHub [@johnpalmgren](https://github.com/JohnPalmgren)
